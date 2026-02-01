@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Portfolio Design System - Mr. Sneharsha
+All colors are HSL for perfect theming and neon effects.
+*/
+
+@layer base {
+  :root {
+    /* Futuristic Dark Theme */
+    --background: 222 84% 2.5%;
+    --foreground: 180 100% 98%;
+
+    /* Glassmorphism Cards */
+    --card: 222 84% 4%;
+    --card-foreground: 180 100% 95%;
+
+    /* Popover Elements */
+    --popover: 222 84% 3%;
+    --popover-foreground: 180 100% 98%;
+
+    /* Neon Accent Colors */
+    --primary: 193 100% 50%;  /* Neon Blue */
+    --primary-foreground: 222 84% 4.9%;
+
+    --secondary: 261 100% 65%;  /* Neon Purple */
+    --secondary-foreground: 180 100% 98%;
+
+    --muted: 222 84% 8%;
+    --muted-foreground: 180 30% 65%;
+
+    --accent: 120 100% 50%;  /* Neon Green */
+    --accent-foreground: 222 84% 4.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 84% 12%;
+    --input: 222 84% 8%;
+    --ring: 193 100% 50%;
+
+    --radius: 1rem;
+
+    /* Neon Glow Colors */
+    --neon-blue: 193 100% 50%;
+    --neon-purple: 261 100% 65%;
+    --neon-green: 120 100% 50%;
+    --neon-cyan: 180 100% 50%;
+    --neon-pink: 330 100% 70%;
+
+    /* Glassmorphism */
+    --glass-bg: 222 84% 4% / 0.1;
+    --glass-border: 180 100% 80% / 0.1;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(193 100% 50%), hsl(261 100% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(261 100% 65%), hsl(330 100% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(120 100% 50%), hsl(180 100% 50%));
+    --gradient-bg: linear-gradient(135deg, hsl(222 84% 2.5%), hsl(222 84% 4%));
+
+    /* Shadows and Glows */
+    --shadow-neon-blue: 0 0 30px hsl(193 100% 50% / 0.5);
+    --shadow-neon-purple: 0 0 30px hsl(261 100% 65% / 0.5);
+    --shadow-neon-green: 0 0 30px hsl(120 100% 50% / 0.5);
+    --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.37);
+
+    /* Animation Timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light mode variants - keeping same futuristic feel */
+  .light {
+    --background: 222 84% 98%;
+    --foreground: 222 84% 4%;
+    --card: 180 100% 95%;
+    --card-foreground: 222 84% 10%;
+    --border: 222 84% 85%;
+    --input: 222 84% 90%;
+    /* Neon colors remain vibrant in light mode */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Futuristic Component Classes */
+@layer components {
+  /* Glassmorphism Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Neon Glow Effects */
+  .glow-blue {
+    box-shadow: var(--shadow-neon-blue);
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-neon-purple);
+  }
+
+  .glow-green {
+    box-shadow: var(--shadow-neon-green);
+  }
+
+  /* Interactive Hover Effects */
+  .hover-tilt {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-tilt:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+  }
+
+  /* Neon Text Effects */
+  .text-neon-blue {
+    color: hsl(var(--neon-blue));
+    text-shadow: 0 0 10px hsl(var(--neon-blue) / 0.5);
+  }
+
+  .text-neon-purple {
+    color: hsl(var(--neon-purple));
+    text-shadow: 0 0 10px hsl(var(--neon-purple) / 0.5);
+  }
+
+  .text-neon-green {
+    color: hsl(var(--neon-green));
+    text-shadow: 0 0 10px hsl(var(--neon-green) / 0.5);
+  }
+
+  /* Animated Borders */
+  .border-animate {
+    background: linear-gradient(45deg, transparent 33%, hsl(var(--primary)) 33%, hsl(var(--primary)) 66%, transparent 66%);
+    background-size: 6px 6px;
+    animation: border-dance 1s linear infinite;
+  }
+
+  /* Typing Animation */
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes border-dance {
+  0% { background-position: 0 0; }
+  100% { background-position: 6px 6px; }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 5px hsl(var(--primary) / 0.5); }
+  50% { box-shadow: 0 0 30px hsl(var(--primary) / 0.8); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
